@@ -10,7 +10,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+      "http://localhost:3000",
+      "https://accerdian-frontend-one.vercel.app",
+    ],
   })
 );
 app.use(express.urlencoded({ extended: true }));
@@ -31,7 +34,7 @@ app.post(
     }
   }
 );
-// Add this to your index.ts to test connection on startup
+
 prisma
   .$connect()
   .then(() => console.log("Database connected successfully"))
